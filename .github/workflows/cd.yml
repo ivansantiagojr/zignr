@@ -40,7 +40,7 @@ jobs:
           version: 0.11.0
 
       - name: Build
-        run: zig build -Drelease-safe -Dtarget=${{ matrix.TARGET }}
+        run: zig build -Dtarget=${{ matrix.TARGET }}
 
       - name: Upload the binary
         uses: svenstaro/upload-release-action@v2
