@@ -45,7 +45,7 @@ jobs:
       - name: Upload the binary
         uses: svenstaro/upload-release-action@v2
         with:
-          file: zig-out/bin/binary-${{ env.RELEASE_VERSION }}-${{ matrix.TARGET }}*
+          file: zig-out/bin/binary-${{ env.RELEASE_VERSION }}-${{ matrix.TARGET }}
           file_glob: true
           overwrite: true
           tag: ${{ github.ref }}
