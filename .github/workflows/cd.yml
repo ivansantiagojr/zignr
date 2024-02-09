@@ -1,0 +1,52 @@
+name: Continuous Deployment
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+jobs:
+  publish-github:
+    name: Publish on GitHub
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        TARGET:
+          [
+            x86_64-linux,
+            x86_64-macos,
+            x86_64-windows,
+            aarch64-linux,
+            aarch64-macos,
+            aarch64-windows,
+            arm-linux,
+            riscv64-linux,
+            i386-linux,
+          ]
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Set the release version
+        run: echo "RELEASE_VERSION=${GITHUB_REF:11}" >> $GITHUB_ENV
+
+      - name: Install Zig
+        uses: goto-bus-stop/setup-zig@v2
+        with:
+          version: 0.11.0
+
+      - name: Build
+        run: zig build -Drelease-safe -Dtarget=${{ matrix.TARGET }}
+
+      - name: Upload the binary
+        uses: svenstaro/upload-release-action@v2
+        with:
+          file: zig-out/bin/binary-${{ env.RELEASE_VERSION }}-${{ matrix.TARGET }}*
+          file_glob: true
+          overwrite: true
+          tag: ${{ github.ref }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }}

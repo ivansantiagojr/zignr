@@ -1,0 +1,33 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: "Build with args: '${{ matrix.OPTIMIZE }}'"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        OPTIMIZE: [""]
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install Zig
+        uses: goto-bus-stop/setup-zig@v2
+        with:
+          version: 0.11.0
+
+      - name: Build
+        run: zig build ${{ matrix.OPTIMIZE }}
+
+      - name: Check formatting
+        run: zig fmt --check .
+

@@ -27,7 +27,6 @@ pub fn main() !void {
 
     var client = http.Client{ .allocator = allocator };
     defer client.deinit();
-
     var base_url = "https://www.toptal.com/developers/gitignore/api/";
     var url_buffer: [256]u8 = undefined;
     const url_to_request = try std.fmt.bufPrint(&url_buffer, "{s}{s}", .{ base_url, language });
