@@ -34,6 +34,10 @@ jobs:
       - name: Build
         run: zig build -Dtarget=${{ matrix.TARGET }}
 
+      - name: Renaming the binary
+      - shell: bash
+      - run : mv zig-out/bin/zignr zig-out/bin/binary-${{ env.RELEASE_VERSION }}-${{ matrix.TARGET }}
+
       - name: Upload the binary
         uses: svenstaro/upload-release-action@v2
         with:
