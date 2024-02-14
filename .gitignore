@@ -12,25 +12,3 @@ docgen_tmp/
 
 # End of https://www.toptal.com/developers/gitignore/api/zig
 
-# Created by https://www.toptal.com/developers/gitignore/api/ansible
-# Edit at https://www.toptal.com/developers/gitignore?templates=ansible
-
-### Ansible ###
-*.retry
-
-# End of https://www.toptal.com/developers/gitignore/api/ansible
-
-# Created by https://www.toptal.com/developers/gitignore/api/zig
-# Edit at https://www.toptal.com/developers/gitignore?templates=zig
-
-### zig ###
-# Zig programming language
-
-zig-cache/
-zig-out/
-build/
-build-*/
-docgen_tmp/
-
-# End of https://www.toptal.com/developers/gitignore/api/zig
-
