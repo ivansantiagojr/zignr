@@ -18,8 +18,13 @@ Zig references I used:
 
 # Installation
 
-I promise that I will write an installation tutorial... maybe (feel free to help with that with a PR).
+For now, you can install from our pre-built binary (Linux only):
 
+```sh
+curl -sSL https://raw.githubusercontent.com/brasilisclub/zignr/install-script/install.sh | bash -
+```
+
+> To make `zignr` available globally you should have `~/.local/bin` on you `PATH`
 
 # Usage
 
