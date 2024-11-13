@@ -13,9 +13,9 @@ jobs:
       fail-fast: false
       matrix:
         TARGET:
-          [
-            x86_64-linux,
-          ]
+          - x86_64-linux
+          - x86_64-macos
+          - aarch64-macos
 
     steps:
       - name: Checkout the repository
