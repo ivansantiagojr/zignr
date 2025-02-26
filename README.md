@@ -9,7 +9,7 @@ This is a CLI tool to generate `.gitgnore` files written in zig.
 For now, you can install from our pre-built binary (Linux only):
 
 ```sh
-curl -sSL https://raw.githubusercontent.com/brasilisclub/zignr/main/install.sh | bash -
+curl -sSL https://raw.githubusercontent.com/ivansantiagojr/zignr/main/install.sh | bash -
 ```
 
 > To make `zignr` available globally you should have `~/.local/bin` on you `PATH`
