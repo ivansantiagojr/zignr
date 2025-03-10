@@ -1,6 +1,5 @@
 const std = @import("std");
 const print = std.io.getStdOut().writer();
-const http = std.http;
 const commands = @import("commands.zig");
 
 pub fn main() !void {
