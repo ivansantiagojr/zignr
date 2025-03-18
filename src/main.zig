@@ -10,8 +10,23 @@ pub fn main() !void {
     const args = try std.process.argsAlloc(allocator);
     defer std.process.argsFree(allocator, args);
 
+    const help_message =
+        \\Get gitignore templates from command line
+        \\
+        \\Commands:
+        \\
+        \\  zignr list          prints all avaible gitignore templates to stdout.
+        \\  zignr <template>    prints the gitignore content to stdout.
+        \\
+        \\Examples:
+        \\
+        \\  zignr python,lua,zig > .gitignore 
+        \\  The above command puts the gitignore content of Python, Lua and Zig templates into .gitignore file.
+        \\
+    ;
+
     if (args.len != 2) {
-        std.debug.print("Usage: {s} <language>\n", .{args[0]});
+        std.debug.print(help_message, .{});
         return;
     }
 
