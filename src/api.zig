@@ -1,7 +1,7 @@
 const std = @import("std");
 const http = std.http;
 
-const base_url = "https://www.toptal.com/developers/gitignore/api/";
+const base_url = "https://donotcommit.com/api/";
 
 const RequestError = error{NotFound};
 
@@ -27,7 +27,7 @@ pub fn request(allocator: std.mem.Allocator, args: [][:0]u8, path: []const u8) !
     if (req.response.status != .ok) {
         std.debug.print(
             \\Something went wrong. Check you passed only valid languages/templates.
-            \\Use: '{s}' to see the available languages/templates
+            \\Use: '{s} list' to see the available languages/templates
         , .{args[0]});
         return RequestError.NotFound;
     }
