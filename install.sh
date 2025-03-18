@@ -1,6 +1,6 @@
 #!/bin/bash
 
-APP_VERSION="0.2.1"
+APP_VERSION="0.3.0"
 BASE_URL="https://github.com/ivansantiagojr/zignr/releases/download/v$APP_VERSION"
 
 BINARY_URL_LINUX="$BASE_URL/BINARY-$APP_VERSION-X86_64-LINUX"
